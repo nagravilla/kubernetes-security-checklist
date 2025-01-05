@@ -7,8 +7,9 @@ Cluster security can mainly be categorized into three areas: authentication secu
 ![4c-cloud](./img/cloud-native.png)
 
 
-Kubernetes Security Checklist
-Authentication & Authorization
+# Kubernetes Security Checklist
+
+# Authentication & Authorization
 
     system:masters group is not used for user or component authentication after bootstrapping
     The kube-controller-manager is running with --use-service-account-credentials enabled
@@ -33,7 +34,7 @@ Authentication & Authorization
     Centralized certificate management is advised for cluster certificates
     Personalize user accounts and name service accounts based on their purpose and access rights
 
-Infrastructure
+# Infrastructure
 
     Automatically configure & update your servers
     Backup regularly
@@ -53,7 +54,7 @@ Infrastructure
     Upgrade your servers regularly
     Use an immutable infrastructure
 
-Network Security
+# Network Security
 
     CNI plugins in-use supports network policies
     Ingress and egress network policies are applied to all workloads in the cluster
@@ -64,7 +65,7 @@ Network Security
     Use of LoadBalancer and ExternalIPs is restricted
     Separate internet-interacting nodes (DMZ) from internal service-interacting nodes
 
-Pod Security
+# Pod Security
 
     RBAC rights to create, update, patch, delete workloads is only granted if necessary
     Appropriate Pod Security Standards policy is applied for all namespaces and enforced
@@ -80,7 +81,7 @@ Pod Security
     Set minimum CPU/RAM limits and capabilities based on least privileges
     Use non-default namespace and apply seccomp, apparmor or selinux profiles
 
-Logs, Auditing, and Monitoring
+# Logs, Auditing, and Monitoring
 
     Audit logs, if enabled, are protected from general access
     The /logs API is disabled (you are running kube-apiserver with --enable-logs-handler=false)
@@ -91,7 +92,7 @@ Logs, Auditing, and Monitoring
     Monitor your authorizations
     Monitor your DNS expiration date
 
-Secrets
+# Secrets
 
     ConfigMaps are not used to hold confidential data
     Encryption at rest is configured for the Secret API
@@ -99,7 +100,7 @@ Secrets
     Service account tokens are not mounted in pods that don't require them
     Bound service account token volume is in-use instead of non-expiring tokens
 
-Images
+# Images
 
     Minimize unnecessary content in container images
     Container images are configured to be run as unprivileged user
@@ -115,20 +116,20 @@ Images
     Regularly check Dockerfile during development and images during application lifecycle by automated scanners
     Build secure CI/CD as same as supply chain process
 
-Admission controllers
+# Admission controllers
 
     An appropriate selection of admission controllers is enabled
     A pod security policy is enforced by the Pod Security Admission or/and a webhook admission controller
     The admission chain plugins and webhooks are securely configured
 
-Code
+# Code
 
     Integrate security scanners in your CI pipeline
     Keep your dependencies up to date
     Protect CI/CD tools like your product
     Run Security tests on code changes
 
-Operational
+# Operational
 
     Determine who is K8S cluster admin
     Establish onboarding process
